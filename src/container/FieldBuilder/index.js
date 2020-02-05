@@ -3,6 +3,7 @@ import _ from 'lodash'
 import React from 'react'
 
 import Captcha from '../../components/Captcha'
+import File from '../../components/File'
 import Html from '../../components/Html'
 import Input from '../../components/Input'
 import Multiselect from '../../components/Multiselect'
@@ -156,7 +157,18 @@ const FieldBuilder = ({
                         wrapId={wrapId}
                     />
                 )
-
+            case 'fileupload':
+                return (
+                    <File
+                        errors={errors[inputName]}
+                        fieldData={fieldData}
+                        key={field.id}
+                        name={inputName}
+                        register={register}
+                        wrapClassName={inputWrapperClass}
+                        wrapId={wrapId}
+                    />
+                )
             default:
                 return null
         }

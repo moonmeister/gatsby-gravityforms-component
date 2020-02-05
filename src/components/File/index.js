@@ -9,7 +9,6 @@ const File = ({ errors, fieldData, name, register, ...wrapProps }) => {
         allowedExtensions,
         cssClass,
         isRequired,
-        maxFileSize,
         maxFiles,
         multipleFiles,
         placeholder,
@@ -57,7 +56,7 @@ const File = ({ errors, fieldData, name, register, ...wrapProps }) => {
                     <input
                         name="MAX_FILE_SIZE"
                         type="hidden"
-                        value={maxFileSize}
+                        value={128000000} //128MB as hard, TODO: get this from API
                     />
                     <input
                         aria-invalid={errors}
@@ -74,7 +73,7 @@ const File = ({ errors, fieldData, name, register, ...wrapProps }) => {
                         ref={register({
                             required: isRequired && strings.errors.required,
                         })}
-                        type="button"
+                        type="file"
                     />
                 </>
             )}
